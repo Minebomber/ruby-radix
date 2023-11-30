@@ -502,7 +502,7 @@ rb_radix_keys(VALUE self)
 			RaiseModified(gen_id_cur, radixp->gen_id);
 			if (rn->data != NULL) {
 				prefix_ntop(rn->prefix, prefix, sizeof(prefix));
-				rb_ary_push(ary, rb_tainted_str_new(
+				rb_ary_push(ary, rb_str_new(
 						    prefix, strlen(prefix)));
 			}
 		} RADIX_WALK_END;
@@ -591,7 +591,7 @@ rb_radix_each_key(VALUE self)
 			RaiseModified(gen_id_cur, radixp->gen_id);
 			if (rn->data != NULL) {
 				prefix_ntop(rn->prefix, prefix, sizeof(prefix));
-				rb_yield(rb_tainted_str_new(prefix,
+				rb_yield(rb_str_new(prefix,
 							    strlen(prefix)));
 			}
 		} RADIX_WALK_END;
@@ -656,7 +656,7 @@ rb_radix_each_pair(VALUE self)
 			RaiseModified(gen_id_cur, radixp->gen_id);
 			if (rn->data != NULL) {
 				prefix_ntop(rn->prefix, prefix, sizeof(prefix));
-				keystr = rb_tainted_str_new(prefix,
+				keystr = rb_str_new(prefix,
 							    strlen(prefix));
 				rb_yield(rb_assoc_new(keystr, (VALUE)rn->data));
 			}
@@ -694,7 +694,7 @@ rb_radix_to_hash(VALUE self)
 			RaiseModified(gen_id_cur, radixp->gen_id);
 			if (rn->data != NULL) {
 				prefix_ntop(rn->prefix, prefix, sizeof(prefix));
-				keystr = rb_tainted_str_new(prefix,
+				keystr = rb_str_new(prefix,
 							    strlen(prefix));
 				rb_hash_aset(hash, keystr, (VALUE)rn->data);
 			}
@@ -769,7 +769,7 @@ rb_rn_prefix_get(VALUE self)
 
 	prefix_ntop(&rn->prefix, prefix, sizeof(prefix));
 
-	return rb_tainted_str_new(prefix, strlen(prefix));
+	return rb_str_new(prefix, strlen(prefix));
 }
 
 static VALUE
@@ -782,7 +782,7 @@ rb_rn_network_get(VALUE self)
 
 	prefix_addr_ntop(&rn->prefix, prefix, sizeof(prefix));
 
-	return rb_tainted_str_new(prefix, strlen(prefix));
+	return rb_str_new(prefix, strlen(prefix));
 }
 
 static VALUE
