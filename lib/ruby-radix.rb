@@ -1,6 +1,6 @@
 $:.unshift(File.dirname(__FILE__)) unless
-  $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
+  $:.include?(File.dirname(__FILE__)) || $:.include?(__dir__)
 
 module RubyRadix
-  VERSION = '0.0.3'
+  VERSION = '0.0.5'
 end

@@ -93,7 +93,7 @@ static void rn_mark(struct radixnode *);
 
 /*-------- class Radix --------*/
 
-static int
+static struct radixdata*
 init_radixdata(struct radixdata *radixp)
 {
 	radix_tree_t *rt4, *rt6;
